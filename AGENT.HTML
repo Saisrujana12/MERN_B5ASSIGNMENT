@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agentblazer Club – Anurag University</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #003366;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background-color: #0066cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .cta-button:hover {
+      background-color: #004c99;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 400px;
+    }
+
+    input, textarea {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #004c99;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Agentblazer Club Logo" style="max-height: 80px;" />
+    <h1>Agentblazer Club – Anurag University</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h2>Welcome to Agentblazer Club</h2>
+    <p>Empowering students through innovation, leadership, and community engagement.</p>
+    <img src="images/club-photo.jpg" alt="Club Members" />
+    <a href="#contact" class="cta-button">Join Us</a>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <h3>Our Mission</h3>
+    <p>To foster technical excellence and ethical leadership among students.</p>
+
+    <h3>Club History</h3>
+    <p>Founded in 2020, Agentblazer Club has hosted 50+ events across tech and outreach.</p>
+
+    <h3>Meet the Team</h3>
+    <ul>
+      <li><strong>Polluri</strong> – Chapter Lead</li>
+      <li><strong>Riya</strong> – Design Head</li>
+      <li><strong>Arjun</strong> – Tech Coordinator</li>
+    </ul>
+  </section>
+
+  <!-- Events Section -->
+  <section id="events">
+    <h2>Upcoming & Past Events</h2>
+    <div id="events-list">
+      <!-- Events will be loaded here -->
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: agentblazer@anurag.edu.in</p>
+
+    <form id="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required />
+
+      <label for="message">Message:</label>
+      <textarea id="message"></textarea>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Agentblazer Club, Anurag University</p>
+    <div>
+      <a href="#" style="color:white; margin-right:1rem;">Instagram</a>
+      <a href="#" style="color:white;">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Contact form validation
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      if (!name || !email) {
+        alert("Please fill in both name and email.");
+        e.preventDefault();
+      }
+    });
+
+    // Dynamic event loading
+    const events = [
+      {
+        title: "AI Outreach Program",
+        date: "2025-08-10",
+        description: "Interactive session with school students on AI fundamentals."
+      },
+      {
+        title: "Power BI Workshop",
+        date: "2025-08-05",
+        description: "Hands-on training on data visualization using Power BI."
+      },
+      {
+        title: "Squid Game Tech Challenge",
+        date: "2025-07-28",
+        description: "Gamified coding challenge inspired by Squid Game."
+      }
+    ];
+
+    const container = document.getElementById("events-list");
+    events.forEach(event => {
+      const div = document.createElement("div");
+      div.innerHTML = `<h3>${event.title}</h3><p><strong>Date:</strong> ${event.date}</p><p>${event.description}</p>`;
+      container.appendChild(div);
+    });
+  </script>
+</body>
+</html>
